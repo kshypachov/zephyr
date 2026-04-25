@@ -53,6 +53,16 @@ Removed APIs and options
 Deprecated APIs and options
 ===========================
 
+* :abbr:`DMIC (Digital Microphone Interface)`
+
+  * The :c:struct:`_dmic_ops` struct has been deprecated. DMIC drivers are now expected to use the
+    :c:macro:`DEVICE_API` macro to declare their driver API.
+
+* LoRa
+
+  * Renamed :c:func:`lora_recv_duty_cycle` to :c:func:`lora_recv_duty_cycle_async`
+    to be consistent with the existing sync/async naming convention.
+
 New APIs and options
 ====================
 ..
@@ -62,6 +72,8 @@ New APIs and options
   instead.
 
 .. zephyr-keep-sorted-start re(^\* \w)
+
+* :c:func:`lora_recv_duty_cycle_async`
 
 .. zephyr-keep-sorted-stop
 
@@ -97,6 +109,13 @@ New Samples
 
 Libraries / Subsystems
 **********************
+
+* LoRa / LoRaWAN
+
+  * Added a native LoRaWAN backend
+    (:kconfig:option:`CONFIG_LORA_MODULE_BACKEND_NATIVE`) that implements
+    LoRaWAN 1.0.x Class A directly on top of the LoRa radio driver, without
+    the Semtech LoRaMac-node dependency.  Currently supports the EU868 region.
 
 Other notable changes
 *********************
