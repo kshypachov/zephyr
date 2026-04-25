@@ -2391,7 +2391,7 @@ static int flash_stm32_ospi_init(const struct device *dev)
 
 	if (dev_data->hospi.Instance == OCTOSPI1) {
 		ospi_mgr_cfg.ClkPort = DT_OSPI_PROP_OR(clk_port, 1);
-		ospi_mgr_cfg.DQSPort = DT_OSPI_PROP_OR(dqs_port, 0);
+		ospi_mgr_cfg.DQSPort = DT_OSPI_PROP_OR(dqs_port, 1);
 		ospi_mgr_cfg.NCSPort = DT_OSPI_PROP_OR(ncs_port, 1);
 		ospi_mgr_cfg.IOLowPort = DT_OSPI_IO_PORT_PROP_OR(io_low_port,
 								 HAL_OSPIM_IOPORT_1_LOW);
@@ -2399,7 +2399,7 @@ static int flash_stm32_ospi_init(const struct device *dev)
 								  HAL_OSPIM_IOPORT_1_HIGH);
 	} else if (dev_data->hospi.Instance == OCTOSPI2) {
 		ospi_mgr_cfg.ClkPort = DT_OSPI_PROP_OR(clk_port, 2);
-		ospi_mgr_cfg.DQSPort = DT_OSPI_PROP_OR(dqs_port, 0);
+		ospi_mgr_cfg.DQSPort = DT_OSPI_PROP_OR(dqs_port, 2);
 		ospi_mgr_cfg.NCSPort = DT_OSPI_PROP_OR(ncs_port, 2);
 		ospi_mgr_cfg.IOLowPort = DT_OSPI_IO_PORT_PROP_OR(io_low_port,
 								 HAL_OSPIM_IOPORT_2_LOW);
